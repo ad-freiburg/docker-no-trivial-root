@@ -1,0 +1,14 @@
+[Unit]
+Description=No Trivial Root for Docker
+Before=docker.service
+After=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=0
+Restart=always
+RestartSec=12s
+ExecStart=/usr/sbin/docker-no-trivial-root
+
+[Install]
+WantedBy=multi-user.target
