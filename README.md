@@ -1,7 +1,7 @@
 No Trivial Root for Docker
 ==========================
 
-**WARNING THIS IS VERY EXPERIMENTAL WITH NO CLAIM OF ACTUAL SECURITY*
+**WARNING THIS IS VERY EXPERIMENTAL WITH NO CLAIM OF ACTUAL SECURITY**
 
 This is a very minimal [docker authorization plugin](https://docs.docker.com/engine/extend/plugins_authorization/) 
 designed to prevent trivial root escalation on docker already **running with user namespaces**.
