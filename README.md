@@ -37,6 +37,11 @@ For systemd (most distributions) this can be done with the following steps
 your dockerd command line.  On Ubuntu this an `ExecStart` in
 `/lib/systemd/system/docker.service`
 
+    sudo $EDITOR /lib/systemd/system/docker.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker.service
+   
+
 Test It
 -------
 The following command should give an error message saying that `--userns=host`
