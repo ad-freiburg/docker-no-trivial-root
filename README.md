@@ -29,7 +29,7 @@ Create a startup unit for your init system of choice and make sure
 For systemd (most distributions) this can be done with the following steps
 
     sudo cp $GOPATH/bin/docker-no-trivial-root /usr/sbin
-    sudo cp systemd/docker-no-trivial-root.service /lib/systemd/system/
+    sudo cp $GOPATH/src/github.com/niklas88/docker-no-trivial-root/systemd/docker-no-trivial-root.service /lib/systemd/system/
     sudo systemctl enable docker-no-trivial-root.service
     sudo systemctl start docker-no-trivial-root.service
 
