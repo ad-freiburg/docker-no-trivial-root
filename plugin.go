@@ -31,9 +31,10 @@ func (p *noroot) AuthZReq(req authorization.Request) authorization.Response {
 		return authorization.Response{Err: err.Error()}
 	}
 
+	log.Println("User:", req.User)
 	log.Println("RequestMethod:", req.RequestMethod)
 	log.Println("ruri:", ruri)
-	if !strings.HasSuffix(ruri, "containers/create") {
+	if !strings.Contains(ruri, "containers/create") {
 		return authorization.Response{Allow: true}
 	}
 
