@@ -37,22 +37,22 @@ For systemd (most distributions) this can be done with the following steps
 your dockerd command line.  On Ubuntu this an `ExecStart` in
 `/lib/systemd/system/docker.service`
 
-    sudo $EDITOR /lib/systemd/system/docker.service
+    sudo systemctl edit --full docker.service 
     sudo systemctl daemon-reload
     sudo systemctl restart docker.service
-   
+
 
 Test It
 -------
 The following command should give an error message saying that `--userns=host`
 is not allowed
 
-    docker run --userns=host --rm -it -v /:/root/ busybox 
+    docker run --userns=host --rm -it -v /:/root/ busybox
 
 also you should get permission denied running `touch /root/foo` inside the container
 created by the following command
 
-    docker run --rm -it -v /:/root/ busybox 
+    docker run --rm -it -v /:/root/ busybox
 
 What's Prevented
 --------------------------
