@@ -11,6 +11,14 @@ To be absolutely clear *without user namespaces this plugin is useless*
 One example of such a trivial way of gaining root would be
 
     docker run --userns=host --rm -it -v /:/root/ busybox
+    / # echo "Written by root" > /root/i_can_write_as_root.txt
+    / # exit
+    ls -la / # /i_can_write_as_root.txt is owned by root
+
+**Explanation:** In this container the host's `/` is mounted at `/root/` and
+since the host and the container share a user namespace (`--userns=host`) the
+root user within the container can write files on the host as root (including
+setting setuid bits). The user is thus effectively root.
 
 Build/Download
 --------------
