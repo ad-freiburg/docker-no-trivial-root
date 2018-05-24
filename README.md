@@ -3,10 +3,15 @@ No Trivial Root for Docker
 
 **WARNING THIS IS VERY EXPERIMENTAL WITH NO CLAIM OF ACTUAL SECURITY**
 
-This is a very minimal [docker authorization plugin](https://docs.docker.com/engine/extend/plugins_authorization/)
-designed to prevent trivial root escalation on docker already **running with user namespaces**.
+This is a very minimal [docker authorization
+plugin](https://docs.docker.com/engine/extend/plugins_authorization/) designed
+to prevent trivial root escalation on docker already **running with user
+namespaces**.
 
-To be absolutely clear *without user namespaces this plugin is useless*
+To be absolutely clear *without user namespaces this plugin is useless*. This
+is because without the activation of user namespaces `root` in a container is
+always the same user as `root` outside the container and thus the trivial root
+case below works even without additional parameters.
 
 One example of such a trivial way of gaining root would be
 
